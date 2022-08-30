@@ -24,7 +24,7 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
               <li>
-                <%= link_to books_path, class: 'nav-link text-light' do %>
+                <%= link_to new_book_path, class: 'nav-link text-light' do %>
                   <i class = "fas fa-home" style ="color: white;"></i>Home
                 <% end %>
               </li>
@@ -34,7 +34,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to new_book_path, class: 'nav-link text-light' do %>
+                <%= link_to books_path, class: 'nav-link text-light' do %>
                   <i class = "fas fa-book-open" style = "color: white"></i>Books
                 <% end %>
               </li>

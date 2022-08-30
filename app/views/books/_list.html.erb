@@ -1,7 +1,7 @@
 <div class="col-md-3">
   <h2>User info</h2>
 　<table class="table">
-
+  <%= image_tag current_user.get_profile_image(100,100) %>
     <tbody>
       <tr>
         <th>name</th>
@@ -14,7 +14,7 @@
     </tbody>
   </table>
   <div class="row">
-    <%= link_to  books_path,class: 'btn btn-outline-secondary btn-block', method: :get do %>
+    <%= link_to  edit_user_path(current_user.id),class: 'btn btn-outline-secondary btn-block', method: :get do %>
       <i class="fas fa-user-cog"></i>
     <% end %>
   </div>

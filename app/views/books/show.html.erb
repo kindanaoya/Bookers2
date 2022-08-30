@@ -7,8 +7,10 @@
         <tbody>
           <tr>
             <td>
-              <%= image_tag @book.get_image %><br>
-              <%= current_user.name %>
+              <%= link_to new_book_path do %>
+                <%= image_tag @book.get_image %><br>
+                <%= current_user.name %>
+              <% end %>
             </td>
             <td><%= link_to @book.title, book_path(@book.id) %></td>
             <td><%= @book.body %></td>
