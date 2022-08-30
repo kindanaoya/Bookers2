@@ -11,8 +11,8 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="d-flex flex-column vh-100">
-    <header class="shadow-sm">
+  <body>
+    <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="/">Bookers</a>
@@ -20,39 +20,52 @@
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="navbar-collapse collpase " id="navbarNavDropdown">
+          <div class="navbar-collapse collapse " id="navbarNavDropdown" style>
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
-            <li class="nav-item">
-              <i class="fa-solid fa-house-chimney"></i>
-              <%= link_to 'Home',books_path,class: 'nav-link text-light' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'Users', books_path, class: 'nav-link text-light' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'Books', new_book_path, class: 'nav-link text-light' %>
-            </li>
-            
-            <li class="nav-item">
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
-            </li>
-            
-           
+              <li>
+                <%= link_to books_path, class: 'nav-link text-light' do %>
+                  <i class = "fas fa-home" style ="color: white;"></i>Home
+                <% end %>
+              </li>
+              <li>
+                <%= link_to users_path, class: 'nav-link text-light' do %>
+                  <i class = "fas fa-users" style = "color: white; "></i>Users
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_book_path, class: 'nav-link text-light' do %>
+                  <i class = "fas fa-book-open" style = "color: white"></i>Books
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
+                  <i class = "fas fa-sign-out-alt" style = "color: white"></i>Log out
+                <% end %>
+              </li>
+
+
             <% else %>
-            <li class="nav-item">
-              <i class="fas fa-home" style="color: white;"></i>
-              <%= link_to 'Home', books_path, class: 'nav-link text-light' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'About', about_path, class: 'nav-link text-light' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-light' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Log in", new_user_session_path, class: 'nav-link text-light' %>
-            </li>
+              <li>
+                <%= link_to root_path, class: 'nav-link text-light' do %>
+                  <i class = "fas fa-home" style = "color: white;"></i>Home
+                <% end %>
+              </li>
+              <li>
+                <%= link_to about_path, class: 'nav-link text-light' do %>
+                  <i class = "fas fa-link" style = "color: white;"></i>About
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
+                  <i class = "fas fa-user-plus" style = "color: white;"></i>Sign up
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
+                  <i class = "fas fa-sign-in-alt" style = "color: white;"></i>Log in
+                <% end %>
+              </li>
             <% end %>
             </ul>
           </div>
